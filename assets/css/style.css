@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+
+/* ---------- Primary set-up ----------*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.global-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.global-box {
+    width: 80%;
+    max-width: 1000px;
+    padding: 2rem 0;
+}
+
+
+/* ---------- Colors ----------*/
+
+:root {
+    /*Primary color*/
+    --darknavyblue: #0E1323;
+    --navyblue: #1C204B;
+    --lightnavyblue: #5747EA;
+    --ultralightnavyblue: #7078C9;
+    --hovernavyblue: #33397A;
+
+    --offwhite: #fafafa;
+
+    /*Secondary color*/
+    --orange: #FF8B64;
+    --blue: #55C2E6;
+    --pink: #FF5E7D;
+    --green: #4BCF82;
+    --purple: #7335D2;
+    --yellow: #F1C75B;
+}
+
+ /*Backgrounds*/
+.bg-dark-nb {background-color: var(--darknavyblue);}
+.bg-nb {background-color: var(--navyblue);}
+.bg-light-nb {background-color: var(--lightnavyblue);}
+.bg-ultralight-nb {background-color: var(--ultralightavyblue);}
+
+.bg-orange {background-color: var(--orange);}
+.bg-blue {background-color: var(--blue);}
+.bg-pink {background-color: var(--pink);}
+.bg-green {background-color: var(--green);}
+.bg-purple {background-color: var(--purple);}
+.bg-yellow {background-color: var(--yellow);}
+
+/*Backgrounds hover*/
+section:not(.titel-box) .bg-nb:hover {background-color: var(--hovernavyblue);}
+
+
+/* ---------- Typos ----------*/
+
+* {
+    font-family: "Rubik", sans-serif;
+    color: var(--offwhite);
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 300;
+}
+
+h2 {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+p { font-size: 1rem;
+    font-weight: 400;
+    color: var(--ultralightnavyblue);
+}
+
+.big {
+    font-size: 3rem;
+    font-weight: 300;
+    color: var(--offwhite);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.small {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--ultralightnavyblue);
+}
+
+
+/* ---------- Grid ----------*/
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 240px);
+    gap: 15px;
+    grid-template-areas: 
+        "titel-grid work-grid play-grid study-grid"
+        "titel-grid excercise-grid social-grid self-care-grid";
+}
+
+.titel-box {grid-area: titel-grid;}
+.work-grid {grid-area: work-grid;}  
+.play-grid {grid-area: play-grid;}
+.study-grid {grid-area: study-grid;}
+.excercise-grid {grid-area: excercise-grid;}
+.social-grid {grid-area: social-grid;}
+.self-care-grid {grid-area: self-care-grid;}
+
+/* ---------- Boxes ----------*/
+
+section > div { 
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+section:not(.titel-box) {
+    display : flex;
+    flex-direction: column;
+}
+
+section:not(.titel-box) > div:first-child {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    overflow: hidden;
+    position: relative;
+    height: 60px;
+    z-index: 1;
+}
+
+section:not(.titel-box) > div:first-child img {
+    width: 60px;
+    position: absolute;
+    top: -10px;
+    right: 5px;
+}
+
+.man-margin-top {
+    margin-top: 7px;
+}
+
+section:not(.titel-box) > div:not(:first-child) {
+    flex: 1;
+    margin-top: -20px;
+    z-index: 2;
+}
+
+.subtitle-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.subtitle-row p {
+    color: var(--offwhite);
+    font-size: 1.2rem;
+}
+
+
+/* ---------- Titel Box ----------*/
+
+.titel-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.titel-box > div {
+    flex: 1; /* Les divs prennent l'espace disponible */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    z-index: 1;
+    margin-top: -10px;
+}
+
+.titel-box > div:first-child {
+    flex: 3; /* Le premier div (profil) prend plus d'espace */
+    justify-content: start;
+    z-index: 2;
+}
+
+.image-jeremy {
+    width: 100px;
+    height: 100px;
+    border: 2px solid var(--offwhite);
+    border-radius: 100%;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+
+/* ---------- Responsivness ----------*/
+
+@media screen and (max-width: 850px) {
+
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 240px);
+        grid-template-areas: 
+            "titel-grid work-grid"
+            "titel-grid play-grid" 
+            "study-grid excercise-grid"
+            "social-grid self-care-grid";
+    }
+}
+
+@media screen and (max-width: 500px) {
+
+    .grid-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(8, 240px);
+        grid-template-areas: 
+            "titel-grid"
+            "titel-grid" 
+            "work-grid"
+            "play-grid" 
+            "study-grid" 
+            "excercise-grid"
+            "social-grid" 
+            "self-care-grid";
+    }
+}
