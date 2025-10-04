@@ -122,7 +122,8 @@ p { font-size: 1rem;
 
 /* ---------- Boxes ----------*/
 
-section > div { 
+section > div,
+nav div { 
     border-radius: 10px;
     padding: 1rem;
 }
@@ -200,6 +201,19 @@ section:not(.titel-box) > div:not(:first-child) {
     border-radius: 100%;
     margin-top: 1rem;
     margin-bottom: 2rem;
+}
+
+
+nav button {
+    background: none;
+    border: none;
+    color: var(--ultralightnavyblue);
+    cursor: pointer;
+    text-align: left;
+}
+
+nav button:hover {
+    color: var(--offwhite);
 }
 
 
